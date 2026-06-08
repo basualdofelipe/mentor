@@ -120,9 +120,16 @@ create that domain. The modes are defined below; routing only decides which one 
 
 ## Onboarding (first run / `mentor onboard`)
 
-Interviews any student from scratch — no external context required. Show the intro below (in the
-student's language), then ask the questions in order. Detect the student's language from how they
-write and store it in `profile.md` `language`; everything internal stays English.
+Interviews any student from scratch — no external context required.
+
+**FIRST, set the language — before saying ANYTHING else, so the whole conversation (including the
+intro) is in the student's language.** If the student already typed something when invoking the
+command, detect the language from it and continue. Otherwise, as the very first action, ask:
+- AskUserQuestion — header `Language / Idioma`, question `Language? · ¿Idioma? · Idioma?` —
+  options `English` / `Español` / `Português` (the automatic "Other" lets them type any).
+
+Store the choice in `profile.md` `language`. Everything internal stays English; only the
+conversation is localized. Render the intro below and every question in the chosen language.
 
 **Intro:** "I'm a learning mentor; my goal is to help you improve at whatever you want to learn.
 Before we start, I'll ask a few short questions to get to know you and build your plan: where you
