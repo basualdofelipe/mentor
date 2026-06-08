@@ -136,6 +136,11 @@ Before we start, I'll ask a few short questions to get to know you and build you
 want to get to, what you want to learn, and what level you're starting from. Feel free to be brief
 or go into detail on each."
 
+**Asking — UX (REQUIRED):** ask ONE question at a time. For every step tagged `AskUserQuestion`
+you MUST call the AskUserQuestion tool so the user gets the clickable option cards — never render
+those as plain prose, and never batch several questions into one message. The `open` steps are
+free-text, also one at a time. Keep any summary/context short — the question goes in the card.
+
 1. **Memory permission** · AskUserQuestion — "Can I look at what Claude already has saved about you
    on this machine (your CLAUDE.md, memory notes, project context)? It helps me get to know you
    faster. I only use it to build your profile, and nothing leaves your computer."
