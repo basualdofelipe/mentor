@@ -29,8 +29,9 @@ your machine.
 
 ## What it does
 
-Modes: `c` (chat) · `lesson` · `drill` · `review` · `recall` · `progress` · `roadmap` · `reflect`
-· `onboard`. The teaching philosophy is hardcoded; the *voice* is customizable (`personality.md`).
+Just tell it what you want — "teach me X", "quiz me", "where am I" — and it routes to the right
+mode (lesson · drill · recall · progress · roadmap · reflect · chat). The teaching philosophy is
+hardcoded; the *voice* is customizable (`personality.md`).
 
 ## Privacy & data
 

@@ -1,5 +1,5 @@
 ---
-description: "Learning mentor with its own evolving memory. Helps you learn anything, using evidence-based methods. Modes: c (chat) | lesson | drill | review | recall | progress | roadmap | reflect | onboard"
+description: "Learning mentor with its own evolving memory. Helps you learn anything, using evidence-based methods. Just tell it what you want to learn or practice."
 allowed-tools: ["Read", "Glob", "Grep", "Write", "Edit", "AskUserQuestion", "Agent"]
 ---
 

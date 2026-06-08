@@ -6,7 +6,7 @@
     {
       "name": "mentor",
       "source": "./plugins/mentor",
-      "description": "Learning mentor with its own evolving memory — teaches you to grow as a developer using evidence-based methods.",
+      "description": "Learning mentor with its own evolving memory — helps you learn anything, using evidence-based methods.",
       "keywords": ["learning", "mentor", "teaching", "education", "socratic"]
     }
   ]
