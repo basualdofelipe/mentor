@@ -1,0 +1,8 @@
+{
+  "name": "mentor",
+  "displayName": "Mentor",
+  "description": "Learning mentor with its own evolving memory. Teaches you to grow as a developer (or in any discipline) using evidence-based methods. Modes: c | lesson | drill | review | recall | progress | roadmap | reflect | onboard",
+  "author": { "name": "Feli" },
+  "license": "MIT",
+  "keywords": ["learning", "mentor", "teaching", "education", "socratic"]
+}
