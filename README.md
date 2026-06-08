@@ -1,8 +1,8 @@
 # Mentor — a learning mentor for Claude Code
 
-A Claude Code **plugin** that teaches you to grow as a developer (or in any discipline), with its
-own memory that evolves over time. It's the *learning* counterpart to a code reviewer: a reviewer
-judges your work, the mentor grows you.
+A Claude Code **plugin** that helps you get better at whatever you want to learn — code, a
+language, a craft, a subject — with its own memory that evolves over time. It interviews you, builds
+a personalized learning plan, and teaches you toward it with evidence-based methods.
 
 Built on evidence-based learning (retrieval practice, spaced repetition, deliberate practice,
 desirable difficulties) and an **anti-slop** discipline: it anchors teaching to canonical sources
