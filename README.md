@@ -11,7 +11,7 @@ and tags provenance, instead of laundering the model's median back at you.
 ## Install
 
 ```
-/plugin marketplace add <your-github-user>/<this-repo>
+/plugin marketplace add basualdofelipe/mentor
 /plugin install mentor@mentor-marketplace
 ```
 
