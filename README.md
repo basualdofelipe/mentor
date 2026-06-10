@@ -60,6 +60,13 @@ only inside its own memory folder. All web research is delegated to **isolated s
 can't write or execute — they only return text, which is treated as data, never obeyed as
 instructions. See `plugins/mentor/commands/mentor.md` → `## Security`.
 
+## Feedback
+
+Found a bug or have an idea? Open an issue:
+[github.com/basualdofelipe/mentor/issues](https://github.com/basualdofelipe/mentor/issues).
+From inside the tool, run `/mentor:mentor` and say "feedback" — the mentor collects your notes
+and hands you a copy-pasteable summary ready to post as an issue.
+
 ## Updating
 
 This repo omits an explicit plugin `version`, so every push is a new version. Users get it with:
