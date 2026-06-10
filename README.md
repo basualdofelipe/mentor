@@ -24,27 +24,30 @@ Then restart the session and run:
 The first run interviews you (in your language) and builds your profile. Everything is local to
 your machine.
 
-> **Private repo?** Each person needs git access to it (add them as collaborators on GitHub), or
-> make the repo public. No payment, no registration — a "marketplace" is just this git repo.
+> No payment, no registration, no account — a "marketplace" is just this public git repo, installed
+> straight from GitHub.
 
 ## What it does
 
-Just tell it what you want — "teach me X", "quiz me", "where am I" — and it routes to the right
-mode (lesson · drill · recall · progress · roadmap · reflect · chat). The teaching philosophy is
-hardcoded; the *voice* is customizable (`personality.md`).
+Just tell it what you want — "teach me X", "quiz me", "where am I", "review my work", "feedback" —
+and it routes to the right mode (chat · lesson · drill · review · recall · progress · roadmap ·
+reflect · feedback). The teaching philosophy is hardcoded; the *voice* is customizable
+(`personality.md`).
 
 ## Privacy & data
 
-- The plugin ships **no personal data**. Your profile, goals, progress and notes are created
-  locally under `~/.claude/memory/mentor/` and never leave your machine.
-- Updating the plugin (a new push here) never touches your memory.
+- The plugin ships **no personal data**. Your profile, goals, progress and notes are created and
+  stored only under `~/.claude/memory/mentor/` on your machine — never sent to the plugin author or
+  any third party (your data is only ever part of your own Claude conversation).
+- Updating the plugin never touches your memory.
 
 ## Security model
 
-The only component with write access is the main command (and only to its own memory folder).
-All web research happens in **isolated sub-agents** (`mentor:researcher`, `mentor:synthesizer`)
-that can't write or execute — they only return text, treated as data. Web content is never
-obeyed as instructions. See `plugins/mentor/commands/mentor.md` → `## Security`.
+The main command's tool grant excludes Bash and the web entirely, and it is instructed to write
+only inside its own memory folder. All web research is delegated to **isolated sub-agents**:
+`mentor:researcher` (web read-only, no local-file access) and `mentor:synthesizer` (no tools). They
+can't write or execute — they only return text, which is treated as data, never obeyed as
+instructions. See `plugins/mentor/commands/mentor.md` → `## Security`.
 
 ## Updating
 
