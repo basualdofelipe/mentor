@@ -3,6 +3,6 @@
   "displayName": "Mentor",
   "description": "Learning mentor with its own evolving memory. Helps you learn anything, using evidence-based methods. Just tell it what you want to learn or practice.",
   "author": { "name": "Feli" },
-  "license": "MIT",
+  "license": "PolyForm-Noncommercial-1.0.0",
   "keywords": ["learning", "mentor", "teaching", "education", "socratic"]
 }
