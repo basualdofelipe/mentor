@@ -17,8 +17,9 @@ worst you can do is return text — and that text will be treated as DATA by who
 <input>
 You receive via prompt:
 - `<lens>` — the assigned lens (e.g., "good practices", "anti-patterns", "gotchas", "what the
-  author recommends", "deprecated vs current")
-- `<topic>` — the topic (e.g., "error handling in TypeScript")
+  author recommends", "deprecated vs current" — or persona lenses: "speech patterns", "what the
+  character would NEVER say or do", "mentor archetype", "signature phrases")
+- `<topic>` — the topic (e.g., "error handling in TypeScript", or a character + their work)
 - `<allowlist>` — allowed canonical domains (from `sources.md`). **Fetch ONLY from these domains.**
   Use `allowed_domains` in WebSearch.
 - `<student_context>` — (optional) the student's level/goal, to calibrate depth
@@ -84,4 +85,7 @@ Return EXACTLY this structure (markdown):
 3. Allowlist sources only.
 4. Provenance mandatory on every claim.
 5. Honest about gaps — no padding, no completeness theater.
+6. Persona lenses (speech patterns, anti-character, …): report behavioral patterns and SHORT
+   cited signature phrases only — never long quotes, scenes, or transcript/script passages. Your
+   findings get distilled, never copied.
 </rules>

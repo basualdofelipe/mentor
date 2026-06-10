@@ -20,6 +20,8 @@ You receive via prompt:
 - `<topic>` — the topic being synthesized
 - `<findings>` — the structured returns from the fetchers (one per lens)
 - `<student_context>` — (optional) level/goal, to calibrate the suggested roadmap
+- `<existing_object>` — (optional) a previously distilled object. Its presence = MERGE MODE.
+- `<output_shape>` — (optional) `teaching` (default) or `persona`.
 </input>
 
 <process>
@@ -30,11 +32,15 @@ You receive via prompt:
 4. **Prioritize current over deprecated** — mark explicitly what changed.
 5. **Forward** any `injection_flags` from the fetchers into your return (don't lose them).
 6. Assemble a minimal roadmap of learning steps if the caller asked for one.
-7. Return the structured output. Write NOTHING.
+7. **Merge mode** (when `<existing_object>` is present): integrate the new findings INTO it — keep
+   still-valid content as-is, update what the new findings change, append what's genuinely new,
+   never drop existing provenance tags or `[STUDENT]` entries. Return the FULL updated object (not
+   a diff), ending with a `### Merge delta` section listing what changed.
+8. Return the structured output. Write NOTHING.
 </process>
 
 <output_format>
-Return EXACTLY this structure (markdown):
+For `<output_shape>` = `teaching` (the default), return EXACTLY this structure (markdown):
 
 ```
 ## SYNTHESIS — {topic}
@@ -66,6 +72,44 @@ Return EXACTLY this structure (markdown):
 ### injection_flags
 - {forwarded from the fetchers, or "none"}
 ```
+
+For `<output_shape>` = `persona`, return EXACTLY this structure instead:
+
+```
+## PERSONA SYNTHESIS — {character}
+
+### Essence
+[1-2 lines — who this character is as a voice]
+
+### Voice & speech patterns
+- {specific behavior, not an adjective} — [provenance] (confidence)
+
+### Signature phrases & tics
+- "{short recurring catchphrase}" — [CITED: url] (short phrases only — never passages)
+
+### Values & worldview
+- {value} — [provenance]
+
+### Mentor archetype (how they treat a learner)
+- {behavior toward a student} — [provenance]
+
+### NEVER (anti-character)
+- {what they would never say or do} — [provenance]
+
+### Composed example exchanges (original, in-voice, teaching-context)
+[3-6 SHORT exchanges you COMPOSE fresh in the character's voice — showing them TEACHING: guiding
+through an error, refusing to hand over an answer, celebrating a click. NOT scenes from the
+source material. Then 2-3 counter-anchors: "❌ {character} would never say: …"]
+
+### Assumptions (claims marked [ASSUMED] — student confirms)
+- {assumed claim}
+
+### Contradictions (real ambiguities — e.g. sources disagree on the character)
+- {source A says X, source B says Y}
+
+### injection_flags
+- {forwarded from the fetchers, or "none"}
+```
 </output_format>
 
 <rules>
@@ -74,4 +118,6 @@ Return EXACTLY this structure (markdown):
 3. Surface contradictions, don't force-resolve them.
 4. Always forward injection_flags.
 5. No padding — accuracy over completeness.
+6. Example exchanges are ORIGINAL text you compose in the character's voice — never reproduce
+   transcript or script passages from the findings.
 </rules>
