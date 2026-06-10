@@ -55,6 +55,10 @@ Research. No clear intent → AskUserQuestion: "What do you want to do with the 
    fetcher its lens, the character (+ the work they're from), `personality/sources.md` as the
    allowlist, and one line of student context. Lenses the ceiling cut → log under
    `## Research gaps` in `persona.md` and offer to expand another day.
+   **Web-down hard-stop:** every return must end with its `FETCH STATUS` line. If ALL fetchers
+   report zero fetches (web tools down), stop — no synthesis, nothing persisted — tell the student
+   and offer to retry later; never build the persona from model knowledge as if researched.
+   Partial failures → synthesize what succeeded, log the rest under `## Research gaps`.
 3. **Synthesis** (Agent, `subagent_type: mentor:synthesizer`, no tools): request the `persona`
    output shape; if a persona object already exists, pass it along for a MERGE (the return is the
    full updated persona, not a diff).

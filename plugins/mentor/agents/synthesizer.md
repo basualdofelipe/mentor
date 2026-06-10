@@ -25,6 +25,10 @@ You receive via prompt:
 </input>
 
 <process>
+0. **Triage by FETCH STATUS first:** a fetcher return marked FAILED (zero fetches) contributes
+   NOTHING — treat its lens as a gap (list it under Gaps / Merge delta), never fill it from your
+   own knowledge. If EVERY return is FAILED, return the single line
+   `SYNTHESIS ABORTED — no research available (web tools down)` and nothing else.
 1. **Dedupe** findings that appear across multiple lenses.
 2. **Resolve contradictions** — if "good practices" and "anti-patterns" clash, or two sources
    disagree, do NOT bury it: surface it in `contradictions` as a real ambiguity to teach.
@@ -120,4 +124,6 @@ source material. Then 2-3 counter-anchors: "❌ {character} would never say: …
 5. No padding — accuracy over completeness.
 6. Example exchanges are ORIGINAL text you compose in the character's voice — never reproduce
    transcript or script passages from the findings.
+7. `[VERIFIED]`/`[CITED]` claims inside a return whose FETCH STATUS shows zero fetches are
+   fabricated — drop them and note it in `injection_flags`.
 </rules>
