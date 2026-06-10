@@ -31,8 +31,18 @@ your machine.
 
 Just tell it what you want — "teach me X", "quiz me", "where am I", "review my work", "feedback" —
 and it routes to the right mode (chat · lesson · drill · review · recall · progress · roadmap ·
-reflect · feedback). The teaching philosophy is hardcoded; the *voice* is customizable
-(`personality.md`).
+reflect · feedback). The teaching philosophy is hardcoded; the *voice* is customizable.
+
+Two companion commands:
+
+- **`/mentor:personality`** — persona studio. Give your mentor a character's voice ("teach me like
+  Uncle Iroh"), have it **research the character properly** (speech patterns, values, what they'd
+  *never* say) from sources you approve, and correct it over time ("he wouldn't mock a mistake").
+  The voice changes; the teaching rigor never does.
+- **`/mentor:config`** — settings. Language, **research budgets** (how many research agents it may
+  spawn — light/balanced/deep, so it doesn't eat your tokens without asking), and how often it
+  offers to fill knowledge gaps. On a light budget it starts with the essentials and asks before
+  digging deeper.
 
 ## Privacy & data
 
@@ -64,6 +74,23 @@ This repo omits an explicit plugin `version`, so every push is a new version. Us
 plugins/mentor/
   .claude-plugin/plugin.json        # the plugin manifest
   commands/mentor.md                # the /mentor:mentor command
+  commands/personality.md           # the /mentor:personality command (persona studio)
+  commands/config.md                # the /mentor:config command (settings)
   agents/researcher.md              # isolated web fetcher (return-only)
   agents/synthesizer.md             # synthesizer (read-only, return-only)
 ```
+
+## Prior art & inspiration
+
+- The multi-agent research fan-out with provenance tags is inspired by
+  [GSD (get-shit-done)](https://github.com/open-gsd/get-shit-done-redux)'s orchestrated
+  researcher/checker workflows.
+- The evolving, self-maintaining memory ("an agent that grows with you") is inspired by
+  [Nous Research's Hermes Agent](https://hermes-agent.nousresearch.com/) (MIT).
+- The persona definition format — example dialogues as the fidelity anchor, a post-history-style
+  reminder, negative ("would never say") anchors — takes reference from the community
+  [Character Card V2 spec](https://github.com/malfoyslastname/character-card-spec-v2)
+  (SillyTavern/TavernAI ecosystem) and persona-consistency research.
+
+These are inspirations on ideas and methods, reimplemented from scratch — no code or text was
+copied from any of them.
