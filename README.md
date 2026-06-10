@@ -43,6 +43,7 @@ Two companion commands:
   spawn — light/balanced/deep, so it doesn't eat your tokens without asking), and how often it
   offers to fill knowledge gaps. On a light budget it starts with the essentials and asks before
   digging deeper.
+- **`/mentor:help`** — a one-screen guide: what the mentor is and how to talk to it.
 
 ## Privacy & data
 
@@ -76,6 +77,7 @@ plugins/mentor/
   commands/mentor.md                # the /mentor:mentor command
   commands/personality.md           # the /mentor:personality command (persona studio)
   commands/config.md                # the /mentor:config command (settings)
+  commands/help.md                  # the /mentor:help command (one-screen guide)
   agents/researcher.md              # isolated web fetcher (return-only)
   agents/synthesizer.md             # synthesizer (read-only, return-only)
 ```
