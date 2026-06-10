@@ -31,6 +31,7 @@ budget:
   subject: light | balanced | deep       # topic research (recurring cost)
   personality: light | balanced | deep   # persona research (mostly one-time)
 reminder_cadence: eager | occasional | never   # how often to offer gap expansions
+seen_version: "1.1"   # maintained by the mentor's what's-new check — PRESERVE it, never offer it as a knob
 ---
 ```
 

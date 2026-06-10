@@ -38,17 +38,23 @@ Before any mode, load context without showing it to the user:
    file that doesn't exist yet is normal; skip it silently.
    **One-time migrations (silent):** if `config.md` is missing but `profile.md` exists → create it
    (`language` from profile.md; `budget: { subject: deep, personality: light }`;
-   `reminder_cadence: occasional`), then mention ONCE, in one line, that settings now live in
-   `/mentor:config`. If `personality/` is missing but a legacy `personality.md` file exists →
+   `reminder_cadence: occasional`; `seen_version: "1.0"` — the what's-new check below handles the
+   announcement). If `personality/` is missing but a legacy `personality.md` file exists →
    create `personality/persona.md` from its content and replace the legacy file's body with the
    single line "Moved to personality/persona.md".
-3. **On-demand routing (do NOT read everything — scale matters here):** identify the active domain
+3. **What's-new check:** compare `seen_version` in `config.md` against the **Feature version**
+   (see the ledger near the bottom of this file) — compare as version numbers, not text. A missing
+   `seen_version` on an onboarded install = "1.0". If lower: update `seen_version` to the current version FIRST (writes before
+   words), then open the session with ONE short line — in the persona's voice, in the student's
+   language — naming what's new *for them* (combine skipped versions into that one line; never a
+   changelog dump). Fresh onboarding writes the current version directly and announces nothing.
+4. **On-demand routing (do NOT read everything — scale matters here):** identify the active domain
    (default: `coding`) and read only its spine that exists: `<domain>/goals.md`,
    `<domain>/progress.md`, `<domain>/next.md`, `<domain>/misconceptions.md`. Load `concepts/`,
    `roadmap/`, `sessions/`, `projects/` only when the topic calls for it, guided by `INDEX.md`.
-4. **Project context:** if you're inside a repo, read its `CLAUDE.md` and check for a folder under
+5. **Project context:** if you're inside a repo, read its `CLAUDE.md` and check for a folder under
    `<domain>/projects/<project>/` — that anchors teaching to real code.
-5. **Show none of this.** Boot silently and go to the mode.
+6. **Show none of this.** Boot silently and go to the mode.
 
 ---
 
@@ -195,8 +201,9 @@ enough to be sure), ask the language card anyway:
 - AskUserQuestion — header `Idioma`, question `Language? · ¿Idioma? · Idioma?` —
   options `English` / `Español` / `Português` (the automatic "Other" lets them type any).
 
-Create `config.md` right away with the chosen `language` (defaults for the rest — the budget
-questions below update it) and render the intro and every question in that language. Confirm the
+Create `config.md` right away with the chosen `language` (defaults for the rest, plus
+`seen_version` = the current Feature version — the budget questions below update the budgets) and
+render the intro and every question in that language. Confirm the
 switch in ONE short line (e.g. "¡Listo, seguimos en español!") — do not add any note about files
 or internals.
 
@@ -445,6 +452,7 @@ budget:
   subject: light | balanced | deep       # topic-research ceiling (recurring cost)
   personality: light | balanced | deep   # persona-research ceiling (mostly one-time)
 reminder_cadence: eager | occasional | never   # how often to offer gap expansions
+seen_version: "1.1"   # maintained by the mentor (what's-new check) — never a user knob
 ---
 ```
 
@@ -496,6 +504,21 @@ sealed organ that returns text.**
   Suggested packages = `[ASSUMED]` + human verification.
 - This mitigates, doesn't eliminate (injection is an open problem). Least privilege keeps the
   residual risk small.
+
+---
+
+## Feature version & what's-new ledger
+
+**Current Feature version: 1.1**
+
+Maintainer discipline: every feature release bumps the minor (a sweeping change bumps the major)
+and adds ONE line to the ledger (newest first, keep the last 3, prune older). Fix-only releases
+don't bump — the version's only job is gating the announcement. The boot's what's-new check reads
+this; the announcement to the student is always a single in-voice line, never this list verbatim.
+
+- v1.1 — persona studio (`/mentor:personality`), settings & research budgets (`/mentor:config`),
+  `/mentor:help`.
+- v1.0 — the original mentor: modes, roadmaps, spaced review, research subsystem.
 
 ---
 
